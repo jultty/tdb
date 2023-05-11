@@ -37,6 +37,12 @@ test('Um arremesso maior que 10 lança uma exceção e não afeta o score', () =
   expect(jogo.score).toBe(0);
 });
 
+test('Um arremesso com valor não-inteiro lança uma exceção e não afeta o score', () => {
+  const jogo = new Jogo();
+  expect(() => jogo.arremessar(4.0001)).toThrow('Valor de arremesso inválido');
+  expect(jogo.score).toBe(0);
+});
+
 test('Um arremesso com valor não-numérico lança uma exceção e não afeta o score', () => {
   const jogo = new Jogo();
   expect(() => jogo.arremessar('g')).toThrow('Valor de arremesso inválido');

@@ -22,7 +22,7 @@ export class Jogo {
 
   arremessar(pinos: number): void {
 
-    if (pinos > 10 || pinos < 0 || isNaN(Number(pinos)))
+    if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos))
       throw new Error('Valor de arremesso inválido');
     
     this.score += pinos;
