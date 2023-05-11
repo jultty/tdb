@@ -7,13 +7,17 @@
   2. Pontuacao(): int - Chamado somente no fim do jogo
      Retorna um inteiro com o total do placar individual
 */
-import { Frame } from './frame.ts';
+import { Frame } from './Frame';
 
 export class Jogo {
   score: number;
+  frames: Frame[] = [];
 
   constructor() {
     this.score = 0;
+    
+    const frame: Frame = new Frame();
+    this.frames.push(frame);
   }
 
   arremessar(pinos: number): void {
@@ -22,7 +26,6 @@ export class Jogo {
       throw new Error('Valor de arremesso inválido');
     
     this.score += pinos;
-    this.frame += 1;
   }
 
   pontuacao(): number {

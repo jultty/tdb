@@ -43,4 +43,3 @@ test('Um arremesso com valor não-numérico lança uma exceção e não afeta o 
   expect(jogo.score).toBe(0);
 });
 
-
