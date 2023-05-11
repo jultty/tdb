@@ -25,6 +25,7 @@ export class Jogo {
     if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos))
       throw new Error('Valor de arremesso inválido');
     
+    this.frames[0].pinosEmPe -= pinos;
     this.score += pinos;
   }
 
