@@ -3,7 +3,7 @@
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "ignorePatterns": ["src/**/*.d.ts", "/tests/*", "/dist/*"],
+  "ignorePatterns": ["*.d.ts", "/dist/*"],
   "rules": {
     "quotes": [
       "error",
@@ -11,6 +11,6 @@
       { "avoidEscape": true, "allowTemplateLiterals": true }
     ],
     "indent": ["error", 2],
-    "semi": ["error", "always"]
+    "semi": ["error", "never"]
   }
 }
