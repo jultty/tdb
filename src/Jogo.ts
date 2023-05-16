@@ -17,17 +17,19 @@ export class Jogo {
     
     const frame = this.frames[this.frameAtual]
 
-    this.validarArremesso(pinos, frame)
+    if (this.validarArremesso(pinos, frame)) {
 
-    frame.calcularBonus(pinos)
-    frame.gravarArremesso(pinos)
-    this.score += pinos
+      frame.adicionarBonus(pinos)
+      frame.gravarArremesso(pinos)
 
-    if (frame.gerarProximoFrame() instanceof Frame) {
+      const bonus = this.obterBonus()
+      this.score += pinos * bonus
+
+    }
+
+    if (frame.permitirEncerrarFrame()) {
       this.frameAtual += 1
-      const proximoFrame = frame.gerarProximoFrame()
-      if (proximoFrame)
-        this.frames.push(proximoFrame)
+      this.frames.push(frame.gerarProximoFrame())
     }
   }
 
@@ -35,16 +37,45 @@ export class Jogo {
     return this.score
   }
 
-  private validarArremesso(pinos: number, frame: Frame): void {
-    if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos))
-      throw new Error('Valor de arremesso inválido')
+  private validarArremesso(pinos: number, frame: Frame): boolean {
+    let validacao = true 
 
-    if (frame.numero != 9 && pinos > frame.pinosEmPe)
-      throw new Error('Valor total dos arremessos superior a 10')
+    if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos)) {
+      validacao = false
+      throw new Error(`Valor de arremesso inválido: ${pinos}`)
+    }
 
-    if (frame.numero === 9 && frame.arremessos > 3) {
+    if (frame.numero != 9 && pinos > frame.pinosEmPe) {
+      validacao = false
+      throw new Error(`Valor total dos arremessos (${pinos}) superior a 10`)
+    }
+
+    if (frame.numero === 9 && frame.arremessos === 3) {
+      validacao = false
       throw new Error('O jogo já foi encerrado')
     }
+
+    return validacao
+  }
+
+  private obterBonus(): number {
+
+    const ultimo = this.frames[this.frameAtual - 1]
+    const penultimo = this.frames[this.frameAtual - 2]
+
+    let bonus = 1
+
+    if (this.frameAtual > 0 && ultimo.bonus > 0) {
+      ultimo.bonus -= 1
+      bonus += 1
+    }
+
+    if (this.frameAtual > 1 && penultimo.bonus > 0) {
+      penultimo.bonus -= 1
+      bonus += 1
+    }
+
+    return bonus 
   }
 
 }

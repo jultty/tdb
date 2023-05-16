@@ -15,7 +15,7 @@ export class Frame {
     this.bonus = 0
   }
 
-  calcularBonus(pinos: number):void {
+  adicionarBonus(pinos: number):void {
     if (this.arremessos === 0 && pinos === 10) {
       this.strike = true
       this.bonus = 2
@@ -32,12 +32,16 @@ export class Frame {
     this.pinosEmPe -= pinos
   }
 
-  gerarProximoFrame(): Frame|undefined {
-    if (this.numero != 9 && (this.pinosEmPe == 0 || this.arremessos === 2)) {
-      const proximoFrame: Frame = new Frame(this.numero + 1)
-      return proximoFrame
-    }
-    return undefined 
+  gerarProximoFrame(): Frame {
+    const proximoFrame: Frame = new Frame(this.numero + 1)
+    return proximoFrame
+  }
+
+  permitirEncerrarFrame(): boolean {
+    if (this.numero != 9 && (this.pinosEmPe == 0 || this.arremessos === 2))
+      return true
+    else
+      return false
   }
 }
 
