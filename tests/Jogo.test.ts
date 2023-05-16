@@ -78,7 +78,7 @@ test('Um strike incrementa o frame atual', () => {
   expect(jogo.frameAtual).toBe(1)
 })
 
-test('Um strike no arremesso 1 do frame 10 não encerra o frame', () => {
+test('Um strike no arremesso 1 do último frame não encerra o frame', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)
   jogo.arremessar(10)
@@ -94,7 +94,7 @@ test('Um strike no arremesso 1 do frame 10 não encerra o frame', () => {
   expect(jogo.frameAtual).toBe(9)
 })
 
-test('Um strike no arremesso 2 do frame 10 não encerra o frame', () => {
+test('Um strike no arremesso 2 do último frame não encerra o frame', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)
   jogo.arremessar(10)
@@ -112,7 +112,7 @@ test('Um strike no arremesso 2 do frame 10 não encerra o frame', () => {
   expect(jogo.frameAtual).toBe(9)
 })
 
-test('Um strike no arremesso 1 do frame 10 permite o arremesso 2', () => {
+test('Um strike no arremesso 1 do último frame permite o arremesso 2', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)
   jogo.arremessar(10)
@@ -133,7 +133,7 @@ test('Um strike no arremesso 1 do frame 10 permite o arremesso 2', () => {
   expect(jogo.frames[jogo.frameAtual].arremessos).toBe(3)
 })
 
-test('Um strike no arremesso 2 do frame 10 permite o arremesso 3', () => {
+test('Um strike no arremesso 2 do último frame permite o arremesso 3', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)
   jogo.arremessar(10)
@@ -154,7 +154,7 @@ test('Um strike no arremesso 2 do frame 10 permite o arremesso 3', () => {
   jogo.arremessar(7)
 })
 
-test('Um spare no arremesso 2 do frame 10 permite o arremesso 3', () => {
+test('Um spare no arremesso 2 do último frame permite o arremesso 3', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)
   jogo.arremessar(10)
@@ -175,7 +175,6 @@ test('Um spare no arremesso 2 do frame 10 permite o arremesso 3', () => {
   jogo.arremessar(2)
 })
 
-// TODO 
 test('Um arremesso após o arremesso 3 do frame 10 não afeta o score e lança uma exceção', () => {
   const jogo = new Jogo()
   jogo.arremessar(10)

@@ -6,14 +6,14 @@ test('O jogo inicia com 1 frame', () => {
   expect(jogo.frames.length).toBe(1)
 })
 
-test('O jogo inicia com 1 frame de número 1 com 0 arremessos', () => {
+test('O jogo inicia com 1 frame de número 0 com 0 arremessos', () => {
   const jogo = new Jogo()
   expect(jogo.frames.length).toBe(1)
-  expect(jogo.frames[0].numero).toBe(1)
+  expect(jogo.frames[0].numero).toBe(0)
   expect(jogo.frames[0].arremessos).toBe(0)
 })
 
-test('O frameAtual de um novo jogo é 1', () => {
+test('O frameAtual de um novo jogo é 0', () => {
   const jogo = new Jogo()
   expect(jogo.frameAtual).toBe(0)
 })
@@ -31,7 +31,7 @@ test('Um arremesso de 4 pinos deixa 6 pinos em pé', () => {
   expect(jogo.frames[0].pinosEmPe).toBe(6)
 })
 
-test('Após 2 arremessos sem strikes no frame 0, frameAtual incrementa', () => {
+test('Após 2 arremessos sem strikes no primeiro frame, frameAtual incrementa', () => {
   const jogo = new Jogo()
   expect(jogo.frameAtual).toBe(0)
   jogo.arremessar(3)

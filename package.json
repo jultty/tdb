@@ -7,7 +7,7 @@
   "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "dev": "jest --watch --collectCoverage --coverageDirectory docs --noStackTrace",
+    "dev": "jest --watch --collectCoverage --coverageDirectory .dev-coverage --noStackTrace",
     "lint": "eslint .",
     "test": "jest --collectCoverage --coverageDirectory docs",
     "build": "tsc",
