@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683884204910" clover="3.2.0">
-  <project timestamp="1683884204910" name="All files">
-    <metrics statements="36" coveredstatements="36" conditionals="30" coveredconditionals="30" methods="4" coveredmethods="4" elements="70" coveredelements="70" complexity="0" loc="36" ncloc="36" packages="1" files="2" classes="2"/>
+<coverage generated="1684202217319" clover="3.2.0">
+  <project timestamp="1684202217319" name="All files">
+    <metrics statements="42" coveredstatements="42" conditionals="32" coveredconditionals="32" methods="8" coveredmethods="8" elements="82" coveredelements="82" complexity="0" loc="42" ncloc="42" packages="1" files="2" classes="2"/>
     <file name="Frame.ts" path="/home/juno/git/hub/tdb/src/Frame.ts">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="10" count="98" type="stmt"/>
-      <line num="11" count="98" type="stmt"/>
-      <line num="12" count="98" type="stmt"/>
-      <line num="13" count="98" type="stmt"/>
-      <line num="14" count="98" type="stmt"/>
-      <line num="15" count="98" type="stmt"/>
+      <metrics statements="17" coveredstatements="17" conditionals="13" coveredconditionals="13" methods="4" coveredmethods="4"/>
+      <line num="3" count="117" type="stmt"/>
+      <line num="4" count="117" type="stmt"/>
+      <line num="5" count="117" type="stmt"/>
+      <line num="6" count="117" type="stmt"/>
+      <line num="7" count="117" type="stmt"/>
+      <line num="8" count="117" type="stmt"/>
+      <line num="12" count="110" type="cond" truecount="4" falsecount="0"/>
+      <line num="13" count="56" type="stmt"/>
+      <line num="14" count="56" type="stmt"/>
+      <line num="17" count="110" type="cond" truecount="4" falsecount="0"/>
+      <line num="18" count="4" type="stmt"/>
+      <line num="19" count="4" type="stmt"/>
+      <line num="24" count="110" type="stmt"/>
+      <line num="25" count="110" type="stmt"/>
+      <line num="29" count="78" type="cond" truecount="5" falsecount="0"/>
+      <line num="30" count="38" type="stmt"/>
+      <line num="31" count="38" type="stmt"/>
     </file>
     <file name="Jogo.ts" path="/home/juno/git/hub/tdb/src/Jogo.ts">
-      <metrics statements="30" coveredstatements="30" conditionals="30" coveredconditionals="30" methods="3" coveredmethods="3"/>
-      <line num="14" count="28" type="stmt"/>
-      <line num="18" count="28" type="stmt"/>
-      <line num="19" count="28" type="stmt"/>
-      <line num="21" count="28" type="stmt"/>
-      <line num="22" count="28" type="stmt"/>
-      <line num="27" count="116" type="cond" truecount="5" falsecount="0"/>
-      <line num="28" count="4" type="stmt"/>
-      <line num="30" count="112" type="cond" truecount="4" falsecount="0"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="33" count="111" type="cond" truecount="4" falsecount="0"/>
-      <line num="34" count="1" type="stmt"/>
-      <line num="37" count="110" type="cond" truecount="4" falsecount="0"/>
-      <line num="38" count="56" type="stmt"/>
-      <line num="39" count="56" type="stmt"/>
-      <line num="42" count="110" type="cond" truecount="4" falsecount="0"/>
-      <line num="43" count="4" type="stmt"/>
+      <metrics statements="25" coveredstatements="25" conditionals="19" coveredconditionals="19" methods="4" coveredmethods="4"/>
+      <line num="4" count="28" type="stmt"/>
+      <line num="7" count="28" type="stmt"/>
+      <line num="8" count="28" type="stmt"/>
+      <line num="10" count="28" type="stmt"/>
+      <line num="11" count="28" type="stmt"/>
+      <line num="16" count="116" type="stmt"/>
+      <line num="18" count="116" type="stmt"/>
+      <line num="19" count="110" type="stmt"/>
+      <line num="20" count="110" type="stmt"/>
+      <line num="22" count="110" type="stmt"/>
+      <line num="24" count="110" type="cond" truecount="4" falsecount="0"/>
+      <line num="25" count="51" type="stmt"/>
+      <line num="26" count="51" type="stmt"/>
+      <line num="27" count="51" type="stmt"/>
+      <line num="28" count="51" type="stmt"/>
+      <line num="31" count="59" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="19" type="stmt"/>
+      <line num="33" count="19" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="43" count="116" type="cond" truecount="5" falsecount="0"/>
       <line num="44" count="4" type="stmt"/>
-      <line num="47" count="110" type="stmt"/>
-      <line num="48" count="110" type="stmt"/>
-      <line num="49" count="110" type="stmt"/>
-      <line num="51" count="110" type="cond" truecount="5" falsecount="0"/>
-      <line num="52" count="51" type="stmt"/>
-      <line num="53" count="51" type="stmt"/>
-      <line num="54" count="51" type="stmt"/>
-      <line num="55" count="51" type="stmt"/>
-      <line num="58" count="59" type="cond" truecount="4" falsecount="0"/>
-      <line num="59" count="19" type="stmt"/>
-      <line num="60" count="19" type="stmt"/>
-      <line num="61" count="19" type="stmt"/>
-      <line num="66" count="1" type="stmt"/>
+      <line num="46" count="112" type="cond" truecount="4" falsecount="0"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="49" count="111" type="cond" truecount="4" falsecount="0"/>
+      <line num="50" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
