@@ -6,8 +6,8 @@ export class Frame {
   spare: boolean
   bonus: number
 
-  constructor(n: number) {
-    this.numero = n
+  constructor(numero: number) {
+    this.numero = numero
     this.arremessos = 0
     this.pinosEmPe = 10
     this.strike = false
@@ -15,7 +15,7 @@ export class Frame {
     this.bonus = 0
   }
 
-  adicionarBonus(pinos: number):void {
+  adicionarBonus(pinos: number): void {
     if (this.arremessos === 0 && pinos === 10) {
       this.strike = true
       this.bonus = 2

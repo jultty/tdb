@@ -17,7 +17,7 @@ export class Jogo {
     
     const frame = this.frames[this.frameAtual]
 
-    if (this.validarArremesso(pinos, frame)) {
+    if (this.validarArremesso(pinos)) {
 
       frame.adicionarBonus(pinos)
       frame.gravarArremesso(pinos)
@@ -37,7 +37,8 @@ export class Jogo {
     return this.score
   }
 
-  private validarArremesso(pinos: number, frame: Frame): boolean {
+  private validarArremesso(pinos: number): boolean {
+    const frame = this.frames[this.frameAtual]
     let validacao = true 
 
     if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos)) {
