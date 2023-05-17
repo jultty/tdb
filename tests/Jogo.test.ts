@@ -299,17 +299,6 @@ test('Uma sequência de 12 strikes leva o score a 300', () => {
   expect(jogo.score).toBe(300)
 })
 
-test('Uma sequência de 12 strikes leva o score a 300', () => {
-  const jogo = new Jogo()
-
-  for (let i = 0; i < 12; i++) {
-    jogo.arremessar(10)
-  }
-
-  expect(jogo.frameAtual).toBe(9)
-  expect(jogo.score).toBe(300)
-})
-
 test('Uma sequência de 13 strikes lança uma exceção e não afeta o score', () => {
   const jogo = new Jogo()
 

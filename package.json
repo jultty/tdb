@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "jest --watch --collectCoverage --coverageDirectory .dev-coverage --noStackTrace",
     "lint": "eslint .",
-    "test": "jest --collectCoverage --coverageDirectory docs",
+    "test": "jest --verbose --collectCoverage --coverageDirectory docs",
     "build": "tsc",
     "start": "node dist/app.js"
   },
@@ -36,6 +36,7 @@
   },
   "jest": {
     "extensionsToTreatAsEsm": [".ts"],
+    "verbose": false,
     "coverageThreshold": {
       "global": {
         "branches": 80,
