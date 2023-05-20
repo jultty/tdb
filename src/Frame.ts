@@ -40,8 +40,6 @@ export class Frame {
   permitirEncerrarFrame(): boolean {
     if (this.numero != 9 && (this.pinos_em_pe == 0 || this.arremessos === 2))
       return true
-    else
-      return false
+    return false
   }
 }
-

@@ -5,7 +5,8 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:@typescript-eslint/strict",
     "plugin:import/recommended",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "prettier"
   ],
   "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
@@ -15,13 +16,6 @@
   },
   "ignorePatterns": ["*.d.ts", "*.js", "/tests/*", "/dist/*", "/docs/*"],
   "rules": {
-    "quotes": [
-      "error",
-      "single",
-      { "avoidEscape": true, "allowTemplateLiterals": true }
-    ],
-    "indent": ["error", 2],
-    "semi": ["error", "never"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "error",
     "no-unused-expressions": "off",
