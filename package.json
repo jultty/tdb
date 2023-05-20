@@ -49,6 +49,7 @@
     ],
     "verbose": false,
     "collectCoverage": true,
+    "coverageDirectory": ".dev-coverage",
     "coverageThreshold": {
       "global": {
         "branches": 80,
