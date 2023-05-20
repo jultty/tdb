@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "CommonJS",
-    "rootDir": "./src/",
+    "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -10,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
@@ -22,6 +23,6 @@
     "sourceMap": true,
     "declaration": true
   },
-  "exclude": ["node_modules", "**/*.tests.ts"],
+  "exclude": ["node_modules"],
   "include": ["src"]
 }

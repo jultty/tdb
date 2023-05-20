@@ -2,20 +2,20 @@ import { Frame } from './Frame'
 
 export class Jogo {
   score: number
-  frameAtual: number
+  frame_atual: number
   frames: Frame[] = []
 
   constructor() {
     this.score = 0
-    this.frameAtual = 0
+    this.frame_atual = 0
     
     const frame: Frame = new Frame(0)
     this.frames.push(frame)
   }
 
-  protected arremessar(pinos: number): void {
+  arremessar(pinos: number): void {
     
-    const frame = this.frames[this.frameAtual]
+    const frame = this.frames[this.frame_atual]
 
     if (this.validarArremesso(pinos)) {
 
@@ -28,7 +28,7 @@ export class Jogo {
     }
 
     if (frame.permitirEncerrarFrame()) {
-      this.frameAtual += 1
+      this.frame_atual += 1
       this.frames.push(frame.gerarProximoFrame())
     }
   }
@@ -38,7 +38,7 @@ export class Jogo {
   }
 
   private validarArremesso(pinos: number): boolean {
-    const frame = this.frames[this.frameAtual]
+    const frame = this.frames[this.frame_atual]
     let validacao = true 
 
     if (pinos > 10 || pinos < 0 || !Number.isInteger(pinos)) {
@@ -46,7 +46,7 @@ export class Jogo {
       throw new Error(`Valor de arremesso inválido: ${pinos}`)
     }
 
-    if (frame.numero != 9 && pinos > frame.pinosEmPe) {
+    if (frame.numero != 9 && pinos > frame.pinos_em_pe) {
       validacao = false
       throw new Error(`Valor total dos arremessos (${pinos}) superior a 10`)
     }
@@ -61,17 +61,17 @@ export class Jogo {
 
   private obterBonus(): number {
 
-    const ultimo = this.frames[this.frameAtual - 1]
-    const penultimo = this.frames[this.frameAtual - 2]
+    const ultimo = this.frames[this.frame_atual - 1]
+    const penultimo = this.frames[this.frame_atual - 2]
 
     let bonus = 1
 
-    if (this.frameAtual > 0 && ultimo.bonus > 0) {
+    if (this.frame_atual > 0 && ultimo.bonus > 0) {
       ultimo.bonus -= 1
       bonus += 1
     }
 
-    if (this.frameAtual > 1 && penultimo.bonus > 0) {
+    if (this.frame_atual > 1 && penultimo.bonus > 0) {
       penultimo.bonus -= 1
       bonus += 1
     }

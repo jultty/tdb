@@ -1,7 +1,7 @@
 export class Frame {
   numero: number
   arremessos: number
-  pinosEmPe: number
+  pinos_em_pe: number
   strike: boolean
   spare: boolean
   bonus: number
@@ -9,7 +9,7 @@ export class Frame {
   constructor(numero: number) {
     this.numero = numero
     this.arremessos = 0
-    this.pinosEmPe = 10
+    this.pinos_em_pe = 10
     this.strike = false
     this.spare = false
     this.bonus = 0
@@ -21,7 +21,7 @@ export class Frame {
       this.bonus = 2
     }
 
-    if (this.arremessos === 1 && pinos === this.pinosEmPe) {
+    if (this.arremessos === 1 && pinos === this.pinos_em_pe) {
       this.spare = true
       this.bonus = 1
     }
@@ -29,16 +29,16 @@ export class Frame {
 
   gravarArremesso(pinos: number): void {
     this.arremessos += 1
-    this.pinosEmPe -= pinos
+    this.pinos_em_pe -= pinos
   }
 
   gerarProximoFrame(): Frame {
-    const proximoFrame: Frame = new Frame(this.numero + 1)
-    return proximoFrame
+    const proximo_frame: Frame = new Frame(this.numero + 1)
+    return proximo_frame
   }
 
   permitirEncerrarFrame(): boolean {
-    if (this.numero != 9 && (this.pinosEmPe == 0 || this.arremessos === 2))
+    if (this.numero != 9 && (this.pinos_em_pe == 0 || this.arremessos === 2))
       return true
     else
       return false
