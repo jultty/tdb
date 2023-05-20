@@ -140,13 +140,7 @@
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,20 +153,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">261x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">261x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">253x</span>
 <span class="cline-any cline-yes">253x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">253x</span>
 <span class="cline-any cline-yes">253x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">253x</span>
@@ -208,7 +199,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">253x</span>
 <span class="cline-any cline-yes">253x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -225,41 +215,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">253x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Frame } from './Frame'
 &nbsp;
 export class Jogo {
   score: number
-  frameAtual: number
+  frame_atual: number
   frames: Frame[] = []
 &nbsp;
   constructor() {
     this.score = 0
-    this.frameAtual = 0
-    
+    this.frame_atual = 0
+&nbsp;
     const frame: Frame = new Frame(0)
     this.frames.push(frame)
   }
 &nbsp;
-  protected arremessar(pinos: number): void {
-    
-    const frame = this.frames[this.frameAtual]
+  arremessar(pinos: number): void {
+    const frame = this.frames[this.frame_atual]
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (this.validarArremesso(pinos)) {
-&nbsp;
       frame.adicionarBonus(pinos)
       frame.gravarArremesso(pinos)
 &nbsp;
       const bonus = this.obterBonus()
       this.score += pinos * bonus
-&nbsp;
     }
 &nbsp;
     if (frame.permitirEncerrarFrame()) {
-      this.frameAtual += 1
+      this.frame_atual += 1
       this.frames.push(frame.gerarProximoFrame())
     }
   }
@@ -269,15 +254,15 @@ export class Jogo {
   }
 &nbsp;
   private validarArremesso(pinos: number): boolean {
-    const frame = this.frames[this.frameAtual]
-    let validacao = true 
+    const frame = this.frames[this.frame_atual]
+    let validacao = true
 &nbsp;
     if (pinos &gt; 10 || pinos &lt; 0 || !Number.isInteger(pinos)) {
       validacao = false
       throw new Error(`Valor de arremesso inválido: ${pinos}`)
     }
 &nbsp;
-    if (frame.numero != 9 &amp;&amp; pinos &gt; frame.pinosEmPe) {
+    if (frame.numero != 9 &amp;&amp; pinos &gt; frame.pinos_em_pe) {
       validacao = false
       throw new Error(`Valor total dos arremessos (${pinos}) superior a 10`)
     }
@@ -291,27 +276,24 @@ export class Jogo {
   }
 &nbsp;
   private obterBonus(): number {
-&nbsp;
-    const ultimo = this.frames[this.frameAtual - 1]
-    const penultimo = this.frames[this.frameAtual - 2]
+    const ultimo = this.frames[this.frame_atual - 1]
+    const penultimo = this.frames[this.frame_atual - 2]
 &nbsp;
     let bonus = 1
 &nbsp;
-    if (this.frameAtual &gt; 0 &amp;&amp; ultimo.bonus &gt; 0) {
+    if (this.frame_atual &gt; 0 &amp;&amp; ultimo.bonus &gt; 0) {
       ultimo.bonus -= 1
       bonus += 1
     }
 &nbsp;
-    if (this.frameAtual &gt; 1 &amp;&amp; penultimo.bonus &gt; 0) {
+    if (this.frame_atual &gt; 1 &amp;&amp; penultimo.bonus &gt; 0) {
       penultimo.bonus -= 1
       bonus += 1
     }
 &nbsp;
-    return bonus 
+    return bonus
   }
-&nbsp;
 }
-&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -319,7 +301,7 @@ export class Jogo {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-17T20:33:00.263Z
+                at 2023-05-20T15:40:26.717Z
             </div>
         <script src="prettify.js"></script>
         <script>
