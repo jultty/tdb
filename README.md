@@ -12,7 +12,7 @@ Foram implementadas duas classes: `Jogo` e `Frame`:
 ```TypeScript
 class Jogo {
   score: number
-  frameAtual: number
+  frame_atual: number
   frames: Frame[]
 
   constructor()
@@ -69,7 +69,7 @@ O método verifica se nos dois últimos frames há valores de bônus, e, se sim,
 class Frame {
   numero: number
   arremessos: number
-  pinosEmPe: number
+  pinos_em_pe: number
   strike: boolean
   spare: boolean
   bonus: number
@@ -85,7 +85,7 @@ class Frame {
 
 A classe `Frame` é instanciada recendo apenas o número do frame. Ela própria possui o método `gerarProximoFrame` para realizar esta instanciação e inferir o próximo número da sequência. 
 
-Ela armazena em seus atributos, além do número do frame, a quantidade de arremessos já realizada, o número de pinos ainda não derrubados (`pinosEmPe`), a quantidade de bônus gerados por _strikes_ e _spares_, e ainda dois valores booleanos, `strike` e `spare`, que permitem simplificar a lógica de estruturas condicionais aplicadas a estes casos especiais.
+Ela armazena em seus atributos, além do número do frame, a quantidade de arremessos já realizada, o número de pinos ainda não derrubados (`pinos_em_pe`), a quantidade de bônus gerados por _strikes_ e _spares_, e ainda dois valores booleanos, `strike` e `spare`, que permitem simplificar a lógica de estruturas condicionais aplicadas a estes casos especiais.
 
 Os seguintes métodos são implementados nesta classe:
 
